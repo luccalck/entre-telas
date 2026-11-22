@@ -68,6 +68,30 @@
   --feedback-border: #bf9c69;
   --success-surface: #dcebcf;
   --success-border: #7e9c69;
+
+  --space-step-0-75: 0.75rem;
+  --space-step-0-4: 0.4rem;
+  --space-step-0-6: 0.6rem;
+  --space-step-0-8: 0.8rem;
+  --space-step-0-7: 0.7rem;
+  --space-step-0-65: 0.65rem;
+  --space-step-0-25: 0.25rem;
+  --space-step-1-125: 1.125rem;
+  --space-step-1-2: 1.2rem;
+  --space-step-1-25: 1.25rem;
+  --space-step-1-15: 1.15rem;
+  --space-step-2-5: 2.5rem;
+  --space-step-1-75: 1.75rem;
+  --space-step-0-2: 0.2rem;
+  --space-step-0-3: 0.3rem;
+  --space-step-0-35: 0.35rem;
+  --space-step-0-9: 0.9rem;
+  --space-step-1-4: 1.4rem;
+  --space-step-1-3: 1.3rem;
+  --space-step-5: 5rem;
+  --space-step-0-55: 0.55rem;
+  --space-step-1-1: 1.1rem;
+  --space-step-2-75: 2.75rem;
 }
 * {
   box-sizing: border-box;
@@ -128,11 +152,11 @@ h2 {
   letter-spacing: -0.035em;
 }
 h1 {
-  font-size: clamp(2.65rem, 5.8vw, 5.75rem);
+  font-size: 2.65rem;
   margin-bottom: var(--space-md);
 }
 h2 {
-  font-size: clamp(1.9rem, 3vw, 2.65rem);
+  font-size: 2rem;
 }
 h3 {
   font-size: 1.15rem;
@@ -172,7 +196,7 @@ strong {
   top: -10rem;
   left: 1rem;
   z-index: 100;
-  padding: 1rem;
+  padding: var(--space-sm);
   background: var(--green);
   color: var(--white);
 }
@@ -186,8 +210,8 @@ strong {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
   background: var(--paper);
   border-bottom: 0.0625rem solid var(--line);
   position: relative;
@@ -196,7 +220,7 @@ strong {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--space-step-0-75);
   text-decoration: none;
   font-weight: 700;
   font-size: 1.2rem;
@@ -208,7 +232,7 @@ strong {
   font-size: 0.54rem;
   font-weight: 600;
   letter-spacing: 0.1em;
-  margin-top: 0.4rem;
+  margin-top: var(--space-step-0-4);
 }
 .brand-symbol {
   display: grid;
@@ -224,10 +248,10 @@ strong {
 .menu-toggle {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: var(--space-step-0-6);
   border: 0.0625rem solid var(--line);
   background: transparent;
-  padding: 0.6rem 0.8rem;
+  padding: var(--space-step-0-6) var(--space-step-0-8);
   font-size: 0.85rem;
   min-height: 2.75rem;
 }
@@ -237,7 +261,7 @@ strong {
 .sidebar {
   display: none;
   background: var(--sidebar);
-  padding: 1.5rem;
+  padding: var(--space-md);
 }
 .sidebar.is-open {
   display: block;
@@ -267,8 +291,8 @@ nav a {
   align-items: center;
   font-size: 0.875rem;
   min-height: 2.75rem;
-  padding: 0.6rem 0.7rem;
-  margin-bottom: 1.5rem;
+  padding: var(--space-step-0-6) var(--space-step-0-7);
+  margin-bottom: var(--space-md);
   border-bottom: 0.0625rem solid var(--line);
 }
 .nav-caption,
@@ -278,18 +302,18 @@ nav a {
   letter-spacing: 0.08em;
 }
 .nav-caption {
-  padding-left: 0.7rem;
-  margin-bottom: 0.75rem;
+  padding-left: var(--space-step-0-7);
+  margin-bottom: var(--space-step-0-75);
   color: var(--muted);
 }
 .chapter-link {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: var(--space-step-0-7);
   min-height: 3.2rem;
-  padding: 0.65rem 0.7rem;
+  padding: var(--space-step-0-65) var(--space-step-0-7);
   font-size: 0.875rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--space-step-0-25);
   border-radius: 0.1rem;
 }
 .chapter-link:hover,
@@ -317,9 +341,9 @@ nav a {
   align-items: center;
   border: 0.0625rem solid var(--green);
   color: var(--green);
-  padding: 0.75rem;
+  padding: var(--space-step-0-75);
   min-height: 3rem;
-  margin-top: 1.5rem;
+  margin-top: var(--space-md);
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -329,15 +353,15 @@ nav a {
   color: var(--paper);
 }
 .sidebar-bottom {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
   border-top: 0.0625rem solid var(--line);
 }
 .progress-label {
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-xs);
 }
 progress {
   width: 100%;
@@ -356,17 +380,17 @@ progress::-webkit-progress-value {
 .sidebar-bottom p {
   font-size: 0.75rem;
   line-height: 1.6;
-  margin: 1rem 0 1.5rem;
+  margin: var(--space-sm) 0 var(--space-md);
 }
 .main-shell {
   min-width: 0;
-  padding: 0 1.125rem;
+  padding: 0 var(--space-step-1-125);
 }
 .top-line {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.2rem 0;
+  gap: var(--space-sm);
+  padding: var(--space-step-1-2) 0;
   border-bottom: 0.0625rem solid var(--line);
   font-family: var(--mono);
   font-size: 0.55rem;
@@ -383,7 +407,7 @@ main {
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: var(--space-step-0-65);
   font-family: var(--mono);
   font-weight: 500;
   font-size: 0.65rem;
@@ -404,7 +428,7 @@ main {
 }
 .button {
   display: inline-flex;
-  gap: 1.25rem;
+  gap: var(--space-step-1-25);
   align-items: center;
   justify-content: center;
   min-height: 3rem;
@@ -412,7 +436,7 @@ main {
   border-radius: 0.125rem;
   background: var(--green);
   color: var(--white);
-  padding: 0.8rem 1.15rem;
+  padding: var(--space-step-0-8) var(--space-step-1-15);
   font-size: 0.875rem;
   text-decoration: none;
   font-weight: 600;
@@ -438,13 +462,13 @@ main {
 }
 .button.small {
   min-height: 2.75rem;
-  padding: 0.5rem 0.8rem;
+  padding: var(--space-xs) var(--space-step-0-8);
   font-family: var(--mono);
   font-size: 0.8rem;
 }
 .text-link {
   display: inline-flex;
-  gap: 0.65rem;
+  gap: var(--space-step-0-65);
   align-items: center;
   min-height: 2.75rem;
   font-size: 0.9rem;
@@ -452,26 +476,26 @@ main {
   color: var(--green);
 }
 .home-hero {
-  padding: 2.5rem 0 2rem;
+  padding: var(--space-step-2-5) 0 var(--space-lg);
 }
 .hero-copy h1 {
-  margin-top: 1.2rem;
+  margin-top: var(--space-step-1-2);
 }
 .hero-copy h1 em {
   color: var(--green);
 }
 .hero-copy .lead {
-  margin-bottom: 1.75rem;
+  margin-bottom: var(--space-step-1-75);
 }
 .hero-note {
-  margin: 1.25rem 0 0;
+  margin: var(--space-step-1-25) 0 0;
   font-family: var(--mono);
   font-size: 0.65rem;
 }
 .hero-diagram {
   position: relative;
   min-height: 19rem;
-  margin-top: 2rem;
+  margin-top: var(--space-lg);
   background-image: radial-gradient(var(--diagram-dot) 0.0625rem, transparent 0.0625rem);
   background-size: 0.9rem 0.9rem;
   border: 0.0625rem solid var(--diagram-border);
@@ -483,7 +507,7 @@ main {
   background: var(--paper);
   font: 0.56rem var(--mono);
   letter-spacing: 0.06em;
-  padding: 0.5rem;
+  padding: var(--space-xs);
 }
 .diagram-label {
   top: 0;
@@ -502,13 +526,13 @@ main {
   border: 0.0625rem solid var(--green);
   box-shadow: 0.5rem 0.5rem 0 var(--diagram-shadow);
   border-radius: 0.3rem;
-  padding: 0.8rem;
+  padding: var(--space-step-0-8);
   transform: rotate(-4deg);
 }
 .diagram-top {
   display: flex;
-  gap: 0.2rem;
-  padding-bottom: 0.6rem;
+  gap: var(--space-step-0-2);
+  padding-bottom: var(--space-step-0-6);
   border-bottom: 0.0625rem solid var(--line);
 }
 .diagram-top span {
@@ -520,8 +544,8 @@ main {
 .diagram-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.8rem;
-  padding: 0.8rem 0;
+  gap: var(--space-step-0-8);
+  padding: var(--space-step-0-8) 0;
 }
 .diagram-art {
   position: relative;
@@ -564,14 +588,14 @@ main {
   height: 0.45rem;
   width: 85%;
   background: var(--green);
-  margin: 0.3rem 0 0.8rem;
+  margin: var(--space-step-0-3) 0 var(--space-step-0-8);
 }
 .diagram-text i,
 .diagram-phone i {
   display: block;
   height: 0.15rem;
   width: 90%;
-  margin: 0.35rem 0;
+  margin: var(--space-step-0-35) 0;
   background: var(--diagram-line);
 }
 .diagram-text i:nth-last-of-type(1) {
@@ -582,12 +606,12 @@ main {
   display: block;
   width: 50%;
   height: 0.8rem;
-  margin-top: 0.9rem;
+  margin-top: var(--space-step-0-9);
   background: var(--green);
 }
 .diagram-cards {
   display: flex;
-  gap: 0.4rem;
+  gap: var(--space-step-0-4);
 }
 .diagram-cards span {
   flex: 1;
@@ -600,7 +624,7 @@ main {
   top: 31%;
   right: 3%;
   width: 27%;
-  padding: 0.6rem;
+  padding: var(--space-step-0-6);
   background: var(--white);
   border: 0.15rem solid var(--green);
   border-radius: 0.8rem;
@@ -612,14 +636,14 @@ main {
   height: 0.2rem;
   border-radius: 1rem;
   background: var(--green);
-  margin: -0.1rem auto 0.5rem;
+  margin: -0.1rem auto var(--space-xs);
 }
 .diagram-phone .diagram-art {
   min-height: 3rem;
 }
 .diagram-phone b {
   height: 0.3rem;
-  margin-top: 0.7rem;
+  margin-top: var(--space-step-0-7);
 }
 .diagram-phone small {
   height: 0.6rem;
@@ -628,7 +652,7 @@ main {
 .phone-bottom {
   width: 40%;
   height: 0.15rem;
-  margin: 1rem auto -0.3rem;
+  margin: var(--space-sm) auto -0.3rem;
   background: var(--green);
 }
 .diagram-cross {
@@ -640,11 +664,11 @@ main {
 }
 .intro-strip {
   border-block: 0.0625rem solid var(--line);
-  padding: 1.25rem 0;
+  padding: var(--space-step-1-25) 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-sm);
 }
 .intro-strip p {
   margin: 0;
@@ -659,15 +683,15 @@ main {
   color: var(--green);
 }
 .chapter-directory {
-  padding: 2.5rem 0;
+  padding: var(--space-step-2-5) 0;
 }
 .directory-heading {
   display: flex;
   flex-wrap: wrap;
   align-items: end;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 .directory-heading h2 {
   margin: 0;
@@ -678,11 +702,11 @@ main {
 }
 .directory-grid {
   display: grid;
-  gap: 0.75rem;
+  gap: var(--space-step-0-75);
 }
 .directory-card {
   text-decoration: none;
-  padding: 1.4rem;
+  padding: var(--space-step-1-4);
   border: 0.0625rem solid var(--line);
   background: var(--card-surface);
   transition: background 0.15s;
@@ -692,10 +716,10 @@ main {
 }
 .directory-card > .eyebrow {
   justify-content: space-between;
-  margin-bottom: 1.3rem;
+  margin-bottom: var(--space-step-1-3);
 }
 .directory-card h3 {
-  margin-bottom: 0.4rem;
+  margin-bottom: var(--space-step-0-4);
 }
 .directory-card p {
   margin: 0;
@@ -703,12 +727,12 @@ main {
 }
 .challenge-banner {
   background: var(--green);
-  padding: 1.5rem;
+  padding: var(--space-md);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: var(--space-md);
 }
 .challenge-banner .eyebrow,
 .challenge-banner p {
@@ -716,7 +740,7 @@ main {
 }
 .challenge-banner h2 {
   color: var(--paper);
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-step-0-75);
 }
 .challenge-banner p:last-child {
   margin: 0;
@@ -724,13 +748,13 @@ main {
   max-width: 45ch;
 }
 .site-footer {
-  margin-top: 3rem;
+  margin-top: var(--space-xl);
   border-top: 0.0625rem solid var(--line);
-  padding: 1.5rem 0 5rem;
+  padding: var(--space-md) 0 var(--space-step-5);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.5rem 1.5rem;
+  gap: var(--space-xs) var(--space-md);
 }
 .site-footer p,
 .site-footer a {
@@ -741,12 +765,12 @@ main {
   flex-basis: 100%;
 }
 .site-footer p span {
-  margin: 0 0.5rem;
+  margin: 0 var(--space-xs);
 }
 .viewport-indicator {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: var(--space-step-0-55);
   position: fixed;
   bottom: 0.7rem;
   right: 0.7rem;
@@ -754,7 +778,7 @@ main {
   background: var(--green);
   color: var(--white);
   border: 0.0625rem solid var(--indicator-border);
-  padding: 0.55rem 0.8rem;
+  padding: var(--space-step-0-55) var(--space-step-0-8);
   font: 0.65rem var(--mono);
   box-shadow: 0 0.2rem 0.7rem var(--indicator-shadow);
 }
@@ -768,12 +792,12 @@ main {
   opacity: 0.5;
 }
 .lesson-hero {
-  padding: 2.5rem 0;
+  padding: var(--space-step-2-5) 0;
   max-width: 56rem;
 }
 .lesson-hero h1 {
-  font-size: clamp(2.6rem, 5.5vw, 5rem);
-  margin-top: 1.25rem;
+  font-size: 2.6rem;
+  margin-top: var(--space-step-1-25);
 }
 .chapter-index {
   display: inline-grid;
@@ -781,22 +805,22 @@ main {
   border: 0.0625rem solid var(--green);
   width: 2.1rem;
   height: 2.1rem;
-  margin-right: 0.2rem;
+  margin-right: var(--space-step-0-2);
 }
 .lesson-block {
-  padding: 2rem 0;
+  padding: var(--space-lg) 0;
   border-top: 0.0625rem solid var(--line);
 }
 .section-heading h2 {
-  margin: 0.65rem 0 1.5rem;
+  margin: var(--space-step-0-65) 0 var(--space-md);
 }
 .concept-grid {
   display: grid;
-  gap: 1rem;
+  gap: var(--space-sm);
 }
 .concept-card {
   position: relative;
-  padding: 1.4rem;
+  padding: var(--space-step-1-4);
   border: 0.0625rem solid var(--line);
   background: var(--card-surface);
 }
@@ -804,7 +828,7 @@ main {
   display: block;
   font: 0.65rem var(--mono);
   color: var(--muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-md);
 }
 .concept-card p {
   margin: 0;
@@ -814,11 +838,11 @@ main {
   min-width: 0;
   border: 0.0625rem solid var(--lab-border);
   background: var(--lab-surface);
-  padding: 1.25rem;
+  padding: var(--space-step-1-25);
   border-radius: 0.15rem;
 }
 .lab-shell h3 {
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-xs);
   font-size: 1.2rem;
 }
 .lab-shell p {
@@ -830,8 +854,8 @@ main {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1.5rem 0 0.5rem;
+  gap: var(--space-xs);
+  margin: var(--space-md) 0 var(--space-xs);
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -850,19 +874,19 @@ input[type='range'] {
   justify-content: space-between;
   color: var(--muted);
   font: 0.65rem var(--mono);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-md);
 }
 .width-frame {
   max-width: 100%;
   container-type: inline-size;
   background: var(--white);
   border: 0.0625rem solid var(--line);
-  margin-top: 1rem;
+  margin-top: var(--space-sm);
 }
 .mini-site {
   display: grid;
-  padding: 1rem;
-  gap: 1.25rem;
+  padding: var(--space-sm);
+  gap: var(--space-step-1-25);
 }
 .mini-art {
   min-height: 8rem;
@@ -870,8 +894,8 @@ input[type='range'] {
   display: flex;
   align-items: end;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
 }
 .mini-art span {
   background: var(--green);
@@ -886,7 +910,7 @@ input[type='range'] {
 }
 .mini-copy h4 {
   font: 1.7rem/1.1 var(--serif);
-  margin: 0.75rem 0;
+  margin: var(--space-step-0-75) 0;
 }
 .mini-copy p {
   font-size: 0.8rem;
@@ -897,7 +921,7 @@ input[type='range'] {
 .mini-chip {
   display: inline-block;
   font-size: 0.65rem;
-  padding: 0.4rem 0.6rem;
+  padding: var(--space-step-0-4) var(--space-step-0-6);
   border: 0.0625rem solid var(--green);
   color: var(--green);
 }
@@ -908,17 +932,17 @@ input[type='range'] {
   }
 }
 .lab-result {
-  padding: 1rem 0 0;
+  padding: var(--space-sm) 0 0;
   border-top: 0.0625rem solid var(--lab-border);
-  margin-top: 1.5rem;
+  margin-top: var(--space-md);
   margin-bottom: 0;
 }
 .notice {
   background: var(--notice-surface);
   color: var(--notice-text);
   border-left: 0.2rem solid var(--notice-border);
-  padding: 0.8rem 1rem;
-  margin-top: 1rem;
+  padding: var(--space-step-0-8) var(--space-sm);
+  margin-top: var(--space-sm);
   font-size: 0.8rem !important;
 }
 .notice.error {
@@ -928,13 +952,13 @@ input[type='range'] {
 }
 .control-grid {
   display: grid;
-  gap: 1rem;
-  margin: 1.5rem 0;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0;
 }
 .control-grid label,
 .animal-list label {
   display: grid;
-  gap: 0.4rem;
+  gap: var(--space-step-0-4);
   font-size: 0.75rem;
 }
 input[type='number'],
@@ -943,7 +967,7 @@ select {
   width: 100%;
   border: 0.0625rem solid var(--input-border);
   border-radius: 0.1rem;
-  padding: 0.65rem 0.75rem;
+  padding: var(--space-step-0-65) var(--space-step-0-75);
   min-height: 2.75rem;
   background: var(--white);
   color: var(--ink);
@@ -952,10 +976,10 @@ select {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-sm);
   border-block: 0.0625rem solid var(--lab-border);
-  padding: 1.5rem 0;
-  margin-bottom: 1.5rem;
+  padding: var(--space-md) 0;
+  margin-bottom: var(--space-md);
   font-family: var(--mono);
   font-size: 1.4rem;
 }
@@ -970,23 +994,23 @@ select {
 .preset-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1rem 0 1.5rem;
+  gap: var(--space-xs);
+  margin: var(--space-sm) 0 var(--space-md);
 }
 .demo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
-  gap: 1rem;
+  gap: var(--space-sm);
   max-width: 100%;
 }
 .demo-card {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 0.75rem;
+  gap: var(--space-step-0-75);
   background: var(--white);
   border: 0.0625rem solid var(--grid-border);
-  padding: 1rem;
+  padding: var(--space-sm);
   min-height: 8rem;
   min-width: 0;
 }
@@ -1005,7 +1029,7 @@ select {
   box-shadow: 0 0.5rem 0 var(--grid-line-soft);
 }
 .code-example {
-  margin: 1rem 0 2.5rem;
+  margin: var(--space-sm) 0 var(--space-step-2-5);
   background: var(--code-surface);
   color: var(--code-text);
   border-radius: 0.15rem;
@@ -1014,16 +1038,16 @@ select {
 .code-toolbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   justify-content: space-between;
-  padding: 1rem 1.25rem;
+  padding: var(--space-sm) var(--space-step-1-25);
   border-bottom: 0.0625rem solid var(--code-border);
   font: 0.65rem var(--mono);
   letter-spacing: 0.04em;
 }
 pre {
   margin: 0;
-  padding: 1.25rem;
+  padding: var(--space-step-1-25);
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   font: 0.76rem/1.9 var(--mono);
@@ -1035,7 +1059,7 @@ code {
 }
 .answer-block {
   border-left: 0.25rem solid var(--green);
-  padding: 1.5rem;
+  padding: var(--space-md);
   background: var(--answer-surface);
 }
 .answer-block h2 {
@@ -1043,7 +1067,7 @@ code {
   font-size: 1.25rem;
   line-height: 1.5;
   letter-spacing: -0.015em;
-  margin: 1rem 0;
+  margin: var(--space-sm) 0;
   font-weight: 600;
 }
 .answer-block p {
@@ -1054,8 +1078,8 @@ code {
   margin: 0;
 }
 .sources {
-  margin-top: 2.5rem;
-  padding-block: 1.5rem;
+  margin-top: var(--space-step-2-5);
+  padding-block: var(--space-md);
   border-block: 0.0625rem solid var(--line);
 }
 .sources h2 {
@@ -1070,7 +1094,7 @@ code {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 0.5rem 1.5rem;
+  gap: var(--space-xs) var(--space-md);
 }
 .sources a,
 .sources p {
@@ -1079,7 +1103,7 @@ code {
 .sources a {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: var(--space-step-0-3);
   min-height: 2.75rem;
 }
 .lesson-finish {
@@ -1087,25 +1111,25 @@ code {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  padding-top: 2rem;
+  gap: var(--space-md);
+  padding-top: var(--space-lg);
 }
 .image-comparison {
   display: grid;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
 }
 .image-experiment {
   border: 0.0625rem solid var(--image-border);
   background: var(--white);
-  padding: 1rem;
+  padding: var(--space-sm);
   min-width: 0;
 }
 .image-experiment h4 {
   font-size: 0.8rem;
 }
 .image-experiment > p {
-  margin: 0.75rem 0 0;
+  margin: var(--space-step-0-75) 0 0;
   font-size: 0.75rem;
 }
 .image-slot.reserved {
@@ -1117,7 +1141,7 @@ code {
 .image-slot span {
   font: 0.6rem var(--mono);
   text-align: center;
-  padding: 0.5rem;
+  padding: var(--space-xs);
 }
 .image-slot img {
   width: 100%;
@@ -1125,9 +1149,9 @@ code {
 .check-control {
   display: flex;
   align-items: start;
-  gap: 0.65rem;
+  gap: var(--space-step-0-65);
   font-size: 0.85rem;
-  margin: 1.5rem 0;
+  margin: var(--space-md) 0;
 }
 input[type='checkbox'] {
   accent-color: var(--green);
@@ -1136,29 +1160,29 @@ input[type='checkbox'] {
 }
 .animal-list {
   display: grid;
-  gap: 0.75rem;
+  gap: var(--space-step-0-75);
 }
 .api-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
 }
 .api-heading h3 {
-  margin: 0.5rem 0 0;
+  margin: var(--space-xs) 0 0;
 }
 .api-badge {
   font: 0.65rem var(--mono);
   background: var(--white);
   border: 0.0625rem solid var(--grid-border);
-  padding: 0.4rem 0.65rem;
+  padding: var(--space-step-0-4) var(--space-step-0-65);
 }
 .api-result {
   border-block: 0.0625rem solid var(--lab-border);
-  padding: 1.5rem 0;
-  margin-bottom: 1.5rem;
+  padding: var(--space-md) 0;
+  margin-bottom: var(--space-md);
 }
 .api-result > a {
   font-weight: 700;
@@ -1166,8 +1190,8 @@ input[type='checkbox'] {
 .api-result dl {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem 3rem;
-  margin: 1rem 0;
+  gap: var(--space-md) var(--space-xl);
+  margin: var(--space-sm) 0;
 }
 .api-result dt {
   font-size: 0.8rem;
@@ -1184,18 +1208,18 @@ input[type='checkbox'] {
   font: 1.4rem/1.5 var(--serif);
 }
 .challenge-form {
-  margin-top: 2rem;
+  margin-top: var(--space-lg);
 }
 .challenge-form label {
   display: block;
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 0.6rem;
+  margin-bottom: var(--space-step-0-6);
 }
 .challenge-form > div {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: var(--space-step-0-75);
 }
 .challenge-form input {
   flex: 1;
@@ -1204,23 +1228,23 @@ input[type='checkbox'] {
 .hint-button {
   border: 0;
   background: transparent;
-  padding: 0.5rem 0;
+  padding: var(--space-xs) 0;
   text-decoration: underline;
-  margin-top: 0.75rem;
+  margin-top: var(--space-step-0-75);
   font-size: 0.8rem;
 }
 .challenge-feedback {
   background: var(--feedback-surface);
   border: 0.0625rem solid var(--feedback-border);
-  padding: 1.25rem;
-  margin-top: 1.5rem;
+  padding: var(--space-step-1-25);
+  margin-top: var(--space-md);
 }
 .challenge-feedback.correct {
   background: var(--success-surface);
   border-color: var(--success-border);
 }
 .challenge-page > .code-example {
-  margin-top: 2rem;
+  margin-top: var(--space-lg);
 }
 @media (min-width: 36rem) {
   .main-shell {
@@ -1242,7 +1266,7 @@ input[type='checkbox'] {
     display: inline;
   }
   .intro-strip strong {
-    margin-right: 1rem;
+    margin-right: var(--space-sm);
   }
   .lab-shell {
     padding: var(--space-md);
@@ -1268,12 +1292,12 @@ input[type='checkbox'] {
     height: 100dvh;
     max-height: none;
     overflow-y: auto;
-    padding: var(--space-lg) 1.1rem var(--space-md);
+    padding: var(--space-lg) var(--space-step-1-1) var(--space-md);
     border-right: 0.0625rem solid var(--line);
   }
   .desktop-brand {
     display: inline-flex;
-    margin: 0 0.65rem 2.5rem;
+    margin: 0 var(--space-step-0-65) var(--space-step-2-5);
   }
   .sidebar-bottom {
     margin-top: auto;
@@ -1293,13 +1317,13 @@ input[type='checkbox'] {
     padding-block: var(--space-xl);
   }
   .hero-copy h1 {
-    font-size: clamp(3.5rem, 5.8vw, 5.75rem);
+    font-size: 3.5rem;
   }
   .lesson-hero {
     padding-block: var(--space-xl);
   }
   .lesson-block {
-    padding-block: 2.5rem;
+    padding-block: var(--space-step-2-5);
   }
   .chapter-directory {
     padding-block: var(--space-xl);
@@ -1310,7 +1334,7 @@ input[type='checkbox'] {
 }
 @media (min-width: 64rem) {
   .main-shell {
-    padding-inline: 2.75rem;
+    padding-inline: var(--space-step-2-75);
   }
   .home-hero {
     display: grid;
@@ -1353,7 +1377,7 @@ input[type='checkbox'] {
     top: 25%;
   }
   .diagram-content {
-    padding-block: 1.2rem;
+    padding-block: var(--space-step-1-2);
   }
   .diagram-art {
     min-height: 6rem;
@@ -1368,5 +1392,30 @@ input[type='checkbox'] {
   *::after {
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (min-width: 48rem) {
+  .lesson-hero h1 {
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 64rem) {
+  .hero-copy h1 {
+    font-size: 4.25rem;
+  }
+  .lesson-hero h1 {
+    font-size: 4.5rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 90rem) {
+  .hero-copy h1 {
+    font-size: 5.25rem;
+  }
+  .lesson-hero h1 {
+    font-size: 5rem;
   }
 }
