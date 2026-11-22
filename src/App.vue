@@ -27,7 +27,7 @@ watch(
 
 <template>
   <a class="skip-link" href="#conteudo" @click.prevent="focusContent">Pular para o conteudo</a>
-  <div class="app-shell">
+  <div class="app-shell" @keydown.esc="closeMenu">
     <header class="mobile-header">
       <RouterLink to="/" class="brand"
         ><span class="brand-symbol" aria-hidden="true">et.</span
