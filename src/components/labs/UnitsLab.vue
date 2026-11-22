@@ -12,7 +12,11 @@ const context = reactive<UnitContext>({
   dynamicHeight: 760,
   zeroWidth: 8,
 })
-const result = computed(() => toPixels(Number(value.value), unit.value, context))
+const result = computed(() =>
+  typeof value.value === 'number' && value.value >= 0
+    ? toPixels(value.value, unit.value, context)
+    : NaN,
+)
 const units: Unit[] = ['px', 'rem', 'em', '%', 'vw', 'vh', 'dvh', 'ch']
 </script>
 
@@ -80,13 +84,17 @@ const units: Unit[] = ['px', 'rem', 'em', '%', 'vw', 'vh', 'dvh', 'ch']
       /></label>
     </div>
     <div class="conversion" aria-live="polite">
-      <span>{{ value || 0 }}{{ unit }}</span
+      <span>{{ typeof value === 'number' ? value : '?' }}{{ unit }}</span
       ><span aria-hidden="true">=</span
       ><strong
         >{{ Number.isFinite(result) ? Number(result.toFixed(2)) : 'Valor invalido'
         }}<small v-if="Number.isFinite(result)">px</small></strong
       >
     </div>
+    <p v-if="!Number.isFinite(result)" class="notice error" role="status">
+      Preencha um valor maior ou igual a zero e uma referencia numerica positiva para a unidade
+      escolhida. Campos vazios nao representam zero.
+    </p>
     <p>
       Experimente: 1.5rem com raiz de 16px resulta em 24px. Mude a raiz para 20px: agora sao 30px. O
       valor de 24px permanece 24px.

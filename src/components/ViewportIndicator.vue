@@ -3,6 +3,8 @@ import { onMounted, onUnmounted, ref } from 'vue'
 
 const width = ref(0)
 const current = ref('Compacto')
+let mediumQuery: MediaQueryList | undefined
+let wideQuery: MediaQueryList | undefined
 function measure() {
   width.value = window.innerWidth
   current.value = window.matchMedia('(min-width: 64rem)').matches
@@ -12,10 +14,18 @@ function measure() {
       : 'Compacto'
 }
 onMounted(() => {
+  mediumQuery = window.matchMedia('(min-width: 48rem)')
+  wideQuery = window.matchMedia('(min-width: 64rem)')
   measure()
   window.addEventListener('resize', measure)
+  mediumQuery.addEventListener('change', measure)
+  wideQuery.addEventListener('change', measure)
 })
-onUnmounted(() => window.removeEventListener('resize', measure))
+onUnmounted(() => {
+  window.removeEventListener('resize', measure)
+  mediumQuery?.removeEventListener('change', measure)
+  wideQuery?.removeEventListener('change', measure)
+})
 </script>
 
 <template>

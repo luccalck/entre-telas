@@ -28,6 +28,14 @@ describe('Medidas CSS', () => {
     expect(toPixels(1.5, 'rem', { ...context, root: 20 })).toBe(30)
     expect(toPixels(24, 'px', { ...context, root: 20 })).toBe(24)
   })
+  it.each([0, -16, NaN, Infinity])('recusa referencia de fonte invalida: %s', (root) => {
+    expect(toPixels(1.5, 'rem', { ...context, root })).toBeNaN()
+  })
+  it('recusa valor nao numerico e mantem zero como valor valido', () => {
+    expect(toPixels(NaN, 'rem', context)).toBeNaN()
+    expect(toPixels(0, 'rem', context)).toBe(0)
+    expect(toPixels(24, 'px', { ...context, root: NaN })).toBe(24)
+  })
   it.each([
     [463, 1],
     [464, 2],

@@ -216,7 +216,7 @@ export const lessons: Lesson[] = [
     ],
     language: 'HTML + CSS',
     code: `<!-- Arquivos com 480px e 960px e proporcao reservada. -->
-<img src="paisagem-960.webp"
+<img class="capa" src="paisagem-960.webp"
   srcset="paisagem-480.webp 480w, paisagem-960.webp 960w"
   sizes="(min-width: 48rem) 40rem, 90vw"
   width="960" height="540" loading="lazy"
@@ -275,8 +275,9 @@ export const lessons: Lesson[] = [
       },
     ],
     language: 'Vue + TypeScript',
-    code: `<!-- AnimalCard.vue: contrato entre pai e filho. -->
+    code: `<!-- Arquivo: src/components/AnimalCard.vue -->
 <script setup lang="ts">
+// A prop recebe dados; o evento informa a intencao ao pai.
 defineProps<{ animal: { id: number; nome: string } }>()
 const emit = defineEmits<{ remover: [id: number] }>()
 <\/script>
@@ -284,12 +285,31 @@ const emit = defineEmits<{ remover: [id: number] }>()
   <button @click="emit('remover', animal.id)">Remover {{ animal.nome }}</button>
 </template>
 
-<!-- No pai, a chave representa a identidade. -->
-<AnimalCard v-for="animal in animais" :key="animal.id"
-  :animal="animal" @remover="removerAnimal" />
+<!-- Outro arquivo: src/views/AnimaisView.vue -->
+<script setup lang="ts">
+import { ref } from 'vue'
+import AnimalCard from '../components/AnimalCard.vue'
 
-<!-- Router: carregamento sob demanda com import(). -->
-<!-- { path: '/imagens', component: () => import('./views/ImagesView.vue') } -->`,
+const animais = ref([{ id: 1, nome: 'Luna' }, { id: 2, nome: 'Bento' }])
+function removerAnimal(id: number) {
+  animais.value = animais.value.filter((animal) => animal.id !== id)
+}
+<\/script>
+<template>
+  <!-- O id mantem a identidade mesmo depois de uma remocao. -->
+  <AnimalCard v-for="animal in animais" :key="animal.id"
+    :animal="animal" @remover="removerAnimal" />
+</template>
+
+// Outro arquivo: src/router/index.ts
+import { createRouter, createWebHashHistory } from 'vue-router'
+export default createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    // O componente so e baixado quando a rota e acessada.
+    { path: '/animais', component: () => import('../views/AnimaisView.vue') },
+  ],
+})`,
     question:
       'Uma lista sem :key tem um campo por animal. A pessoa digita no segundo e remove o primeiro. O que pode acontecer com o texto e por que?',
     answer: [

@@ -12,8 +12,15 @@ function focusContent() {
   document.querySelector<HTMLElement>('#conteudo')?.focus()
 }
 function closeMenu() {
+  if (!menuOpen.value) return
   menuOpen.value = false
   menuButton.value?.focus()
+}
+async function handleNavigation(event: MouseEvent) {
+  if (!(event.target instanceof Element) || !event.target.closest('a')) return
+  menuOpen.value = false
+  await nextTick()
+  document.querySelector<HTMLElement>('#conteudo')?.focus({ preventScroll: true })
 }
 watch(
   () => route.path,
@@ -29,7 +36,7 @@ watch(
   <a class="skip-link" href="#conteudo" @click.prevent="focusContent">Pular para o conteudo</a>
   <div class="app-shell" @keydown.esc="closeMenu">
     <header class="mobile-header">
-      <RouterLink to="/" class="brand"
+      <RouterLink to="/" class="brand" @click="handleNavigation"
         ><span class="brand-symbol" aria-hidden="true">et.</span
         ><span>entre telas<small>GUIA DE RESPONSIVIDADE</small></span></RouterLink
       ><button
@@ -42,12 +49,12 @@ watch(
         {{ menuOpen ? 'Fechar' : 'Menu' }}<span aria-hidden="true">{{ menuOpen ? '-' : '+' }}</span>
       </button>
     </header>
-    <aside class="sidebar" :class="{ 'is-open': menuOpen }" @keydown.esc="closeMenu">
+    <aside class="sidebar" :class="{ 'is-open': menuOpen }">
       <RouterLink class="brand desktop-brand" to="/"
         ><span class="brand-symbol" aria-hidden="true">et.</span
         ><span>entre telas<small>GUIA DE RESPONSIVIDADE</small></span></RouterLink
       >
-      <nav id="site-nav" aria-label="Navegacao principal">
+      <nav id="site-nav" aria-label="Navegacao principal" @click="handleNavigation">
         <RouterLink to="/" class="overview-link" exact-active-class="is-active"
           >Visao geral <span aria-hidden="true">&nearr;</span></RouterLink
         >
@@ -82,7 +89,6 @@ watch(
         <span class="edition-label">CADERNO DIGITAL / 2026</span>
       </div>
     </aside>
-    <div v-if="menuOpen" class="menu-backdrop" aria-hidden="true" @click="menuOpen = false"></div>
     <div class="main-shell">
       <div class="top-line">
         <span>MENOS RECEITA. MAIS EXPERIMENTO.</span><span>VUE 3 + CSS</span>

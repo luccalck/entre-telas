@@ -21,7 +21,9 @@ export function toPixels(value: number, unit: Unit, context: UnitContext): numbe
     dvh: context.dynamicHeight / 100,
     ch: context.zeroWidth,
   }
-  return value * factors[unit]
+  const factor = factors[unit]
+  if (!Number.isFinite(value) || !Number.isFinite(factor) || factor <= 0) return NaN
+  return value * factor
 }
 
 export function gridColumns(width: number, root = 16, items = 4): number {

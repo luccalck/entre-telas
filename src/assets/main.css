@@ -54,7 +54,7 @@
   --error-surface: #fff2e7;
   --error-text: #713f1e;
   --error-border: #985b30;
-  --input-border: #99ac90;
+  --input-border: #6a8257;
   --grid-border: #b7c8ab;
   --grid-line: #d3dcca;
   --grid-line-soft: #e5eadf;
@@ -98,6 +98,7 @@
 }
 body {
   margin: 0;
+  overflow-wrap: anywhere;
 }
 button,
 input,
@@ -208,6 +209,7 @@ strong {
 }
 .mobile-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-sm);
@@ -219,6 +221,8 @@ strong {
 }
 .brand {
   display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
   align-items: center;
   gap: var(--space-step-0-75);
   text-decoration: none;
@@ -265,22 +269,12 @@ strong {
 }
 .sidebar.is-open {
   display: block;
-  position: absolute;
+  position: relative;
   z-index: 35;
-  left: 0;
-  right: 0;
-  top: 4.9rem;
-  max-height: calc(100dvh - 5rem);
-  overflow-y: auto;
+  top: auto;
 }
 .desktop-brand {
   display: none;
-}
-.menu-backdrop {
-  position: fixed;
-  inset: 0;
-  background: var(--overlay);
-  z-index: 30;
 }
 nav a {
   text-decoration: none;
@@ -769,6 +763,8 @@ main {
 }
 .viewport-indicator {
   display: flex;
+  flex-wrap: wrap;
+  max-width: calc(100% - var(--space-step-0-7) - var(--space-step-0-7));
   align-items: center;
   gap: var(--space-step-0-55);
   position: fixed;
@@ -1222,8 +1218,8 @@ input[type='checkbox'] {
   gap: var(--space-step-0-75);
 }
 .challenge-form input {
-  flex: 1;
-  min-width: 7rem;
+  flex: 1 1 7rem;
+  min-width: 0;
 }
 .hint-button {
   border: 0;
@@ -1305,9 +1301,6 @@ input[type='checkbox'] {
   }
   .chapter-link {
     font-size: 0.8rem;
-  }
-  .menu-backdrop {
-    display: none;
   }
   .top-line {
     font-size: 0.6rem;
