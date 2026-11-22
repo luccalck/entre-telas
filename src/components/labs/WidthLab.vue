@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import WidthControl from '@/components/WidthControl.vue'
 const requested = ref(620)
 const actual = ref(0)
@@ -10,6 +10,9 @@ const expanded = ref(false)
 const threshold = computed(() => 30 * root.value)
 const maximum = computed(() => Math.max(960, Math.ceil(36 * root.value)))
 const limited = computed(() => outerWidth.value < requested.value - 0.5)
+watch(maximum, (max) => {
+  requested.value = Math.min(requested.value, max)
+})
 let observer: ResizeObserver | undefined
 onMounted(() => {
   observer = new ResizeObserver(([entry]) => {
