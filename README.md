@@ -109,7 +109,7 @@ Os dois integrantes devem entregar:
 2. Link deste repositório.
 3. Captura do site rodando no aparelho celular da dupla.
 
-**A captura em celular físico ainda precisa ser feita pela dupla.** Abra o site no navegador do celular, mostre uma seção ou laboratório e faça uma captura de tela do próprio aparelho. Uma imagem de emulação do computador não substitui esse item.
+A captura em celular físico foi realizada pela dupla. As imagens mostram a página inicial, o menu móvel e o rodapé com a identificação dos integrantes e acompanham a entrega dos dois links. As capturas de emulação usadas no desenvolvimento não substituem essas imagens do aparelho.
 
 O PDF informa apresentação em 01/12/2026 e entrega até 22/12/2026, às 23h59. Não exige envio de ZIP. Os laboratórios devem ser compreendidos pela dupla para a apresentação.
 
